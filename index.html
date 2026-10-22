@@ -1,0 +1,2377 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#d71920">
+    <meta name="description" content="Website fan-made Persija Jakarta: berita, jadwal, hasil pertandingan, sejarah, dan video highlight Macan Kemayoran.">
+    <title>Persija Jakarta | Macan Kemayoran</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --red: #d71920;
+            --dark-red: #a80e17;
+            --black: #111111;
+            --dark: #181818;
+            --gray: #737373;
+            --light: #f5f5f5;
+            --white: #ffffff;
+            --border: #e7e7e7;
+            --container: 1180px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.7;
+        }
+
+        body.no-scroll {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(var(--container), 92%);
+            margin: auto;
+        }
+
+        .section {
+            padding: 85px 0;
+        }
+
+        .section-light {
+            background: var(--light);
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            color: var(--red);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(35px, 5vw, 52px);
+            line-height: 1.05;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .section-description {
+            color: var(--gray);
+            max-width: 620px;
+            margin-top: 12px;
+            font-size: 14px;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            padding: 12px 22px;
+            border: 2px solid var(--red);
+            background: var(--red);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            transition: .25s;
+        }
+
+        .btn:hover {
+            background: var(--dark-red);
+            border-color: var(--dark-red);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--red);
+        }
+
+        .btn-outline:hover {
+            color: var(--white);
+        }
+
+        /* TOP BAR */
+
+        .topbar {
+            background: var(--black);
+            color: #ddd;
+            font-size: 11px;
+            padding: 8px 0;
+        }
+
+        .topbar-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .topbar a:hover {
+            color: var(--white);
+        }
+
+        .topbar-right {
+            display: flex;
+            gap: 17px;
+        }
+
+        /* NAVIGATION */
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .05);
+        }
+
+        .nav-inner {
+            min-height: 82px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+        .brand img {
+            width: 47px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .brand-text strong {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 25px;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .brand-text span {
+            display: block;
+            color: var(--red);
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            margin-top: 5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            position: relative;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: .2s;
+        }
+
+        .nav-menu a::after {
+            content: "";
+            position: absolute;
+            bottom: -9px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--red);
+            transition: .2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--red);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-cta {
+            padding: 10px 15px;
+            font-size: 10px;
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 27px;
+            color: var(--black);
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            color: var(--white);
+            background: var(--black);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(0, 0, 0, .96) 0%, rgba(0, 0, 0, .78) 43%, rgba(0, 0, 0, .2) 100%),
+                linear-gradient(0deg, rgba(0, 0, 0, .55), transparent 55%),
+                url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=2000&q=85")
+                center / cover no-repeat;
+            transform: scale(1.02);
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            right: -100px;
+            bottom: -240px;
+            width: 600px;
+            height: 600px;
+            border: 75px solid rgba(215, 25, 32, .5);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            padding: 90px 0;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 7px 12px;
+            background: var(--red);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(58px, 10vw, 110px);
+            font-weight: 900;
+            line-height: .88;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: var(--red);
+        }
+
+        .hero p {
+            max-width: 520px;
+            margin: 25px 0 30px;
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero .btn-outline {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, .7);
+        }
+
+        .hero .btn-outline:hover {
+            background: var(--white);
+            color: var(--black);
+            border-color: var(--white);
+        }
+
+        .hero-bottom {
+            position: absolute;
+            z-index: 2;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(215, 25, 32, .96);
+        }
+
+        .hero-bottom-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding: 14px 0;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* QUICK LINKS */
+
+        .quick-links {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .quick-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 25px 18px;
+            border-right: 1px solid var(--border);
+            transition: .25s;
+        }
+
+        .quick-item:first-child {
+            border-left: 1px solid var(--border);
+        }
+
+        .quick-item:hover {
+            background: #fff0f0;
+        }
+
+        .quick-icon {
+            display: grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            background: var(--red);
+            color: white;
+            font-size: 21px;
+        }
+
+        .quick-item strong {
+            display: block;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .quick-item span {
+            display: block;
+            color: var(--gray);
+            font-size: 10px;
+            margin-top: 3px;
+        }
+
+        /* MATCHES */
+
+        .match-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tab-button {
+            padding: 10px 18px;
+            border: 1px solid var(--border);
+            background: white;
+            color: var(--black);
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .tab-button.active,
+        .tab-button:hover {
+            background: var(--red);
+            border-color: var(--red);
+            color: white;
+        }
+
+        .match-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .match-card {
+            display: grid;
+            grid-template-columns: 150px 1fr 150px;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            background: white;
+            transition: .25s;
+        }
+
+        .match-card:hover {
+            border-color: #efb0b2;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+            transform: translateY(-2px);
+        }
+
+        .match-date {
+            border-right: 1px solid var(--border);
+            padding-right: 15px;
+        }
+
+        .match-date small {
+            display: block;
+            color: var(--gray);
+            font-size: 10px;
+            text-transform: uppercase;
+        }
+
+        .match-date strong {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .match-date span {
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .match-teams {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .team {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .team:last-child {
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .team-logo {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            background: #f5f5f5;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .team-logo img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+        }
+
+        .team-name {
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        .team-name small {
+            display: block;
+            color: var(--gray);
+            font-size: 9px;
+            font-weight: 500;
+            margin-top: 3px;
+        }
+
+        .match-score {
+            min-width: 74px;
+            padding: 9px 12px;
+            background: var(--black);
+            color: white;
+            text-align: center;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .match-score.upcoming {
+            background: #f1f1f1;
+            color: var(--black);
+            font-size: 14px;
+            letter-spacing: 0;
+        }
+
+        .match-action {
+            text-align: right;
+        }
+
+        .match-action a {
+            display: inline-block;
+            padding: 10px 13px;
+            border: 1px solid var(--red);
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: .2s;
+        }
+
+        .match-action a:hover {
+            background: var(--red);
+            color: white;
+        }
+
+        .match-note {
+            margin-top: 18px;
+            color: var(--gray);
+            font-size: 11px;
+        }
+
+        /* FEATURE STORY */
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .feature-image {
+            position: relative;
+            min-height: 430px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .feature-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .feature-image::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0, 0, 0, .75), transparent 70%);
+        }
+
+        .feature-image-caption {
+            position: absolute;
+            z-index: 1;
+            bottom: 28px;
+            left: 28px;
+            right: 28px;
+            color: white;
+        }
+
+        .feature-image-caption span {
+            display: inline-block;
+            background: var(--red);
+            padding: 5px 9px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .feature-image-caption h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 36px;
+            line-height: 1.05;
+            margin-top: 12px;
+            text-transform: uppercase;
+        }
+
+        .feature-content {
+            padding: 20px 0;
+        }
+
+        .feature-content h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 36px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .feature-content p {
+            color: var(--gray);
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .goal-list {
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .goal-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 12px;
+        }
+
+        .goal-list strong {
+            color: var(--red);
+        }
+
+        /* NEWS */
+
+        .news-tools {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .news-search {
+            width: 200px;
+            padding: 11px 13px;
+            border: 1px solid var(--border);
+            outline: none;
+            font-size: 11px;
+        }
+
+        .news-search:focus {
+            border-color: var(--red);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .news-card {
+            background: white;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: .25s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, .08);
+        }
+
+        .news-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: #ddd;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s;
+        }
+
+        .news-card:hover .news-image img {
+            transform: scale(1.06);
+        }
+
+        .news-category {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: var(--red);
+            color: white;
+            padding: 7px 12px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .news-body {
+            padding: 22px;
+        }
+
+        .news-meta {
+            color: var(--gray);
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+
+        .news-body h3 {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .news-body p {
+            color: var(--gray);
+            font-size: 12px;
+            margin-bottom: 17px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            color: var(--red);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .read-more:hover {
+            color: var(--dark-red);
+        }
+
+        .empty-news {
+            grid-column: 1 / -1;
+            padding: 35px;
+            text-align: center;
+            background: white;
+            color: var(--gray);
+        }
+
+        /* HISTORY */
+
+        .history-section {
+            position: relative;
+            background: var(--black);
+            color: white;
+            overflow: hidden;
+        }
+
+        .history-section::before {
+            content: "1928";
+            position: absolute;
+            right: -20px;
+            top: 15px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(150px, 28vw, 360px);
+            line-height: 1;
+            font-weight: 900;
+            color: rgba(255, 255, 255, .035);
+            pointer-events: none;
+        }
+
+        .history-layout {
+            position: relative;
+            display: grid;
+            grid-template-columns: .8fr 1.2fr;
+            gap: 65px;
+        }
+
+        .history-intro p {
+            color: #c4c4c4;
+            font-size: 13px;
+            margin: 22px 0;
+        }
+
+        .history-intro .section-title {
+            color: white;
+        }
+
+        .history-intro strong {
+            color: var(--red);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #383838;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 0 0 30px 15px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: -38px;
+            width: 14px;
+            height: 14px;
+            border: 3px solid var(--black);
+            border-radius: 50%;
+            background: var(--red);
+            box-shadow: 0 0 0 2px var(--red);
+        }
+
+        .timeline-year {
+            color: var(--red);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 30px;
+            font-weight: 900;
+        }
+
+        .timeline-item h3 {
+            font-size: 15px;
+            margin: 3px 0 7px;
+        }
+
+        .timeline-item p {
+            color: #b8b8b8;
+            font-size: 12px;
+        }
+
+        /* TROPHIES */
+
+        .trophy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .trophy-card {
+            padding: 30px 18px;
+            background: white;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: .25s;
+        }
+
+        .trophy-card:hover {
+            border-color: var(--red);
+            transform: translateY(-4px);
+        }
+
+        .trophy-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .trophy-card strong {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--red);
+            font-size: 39px;
+            line-height: 1.1;
+        }
+
+        .trophy-card span {
+            display: block;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-top: 9px;
+        }
+
+        .trophy-card small {
+            display: block;
+            color: var(--gray);
+            font-size: 10px;
+            margin-top: 6px;
+        }
+
+        /* SUPPORTERS BANNER */
+
+        .supporter-banner {
+            position: relative;
+            padding: 70px 0;
+            color: white;
+            background:
+                linear-gradient(90deg, rgba(145, 0, 10, .95), rgba(215, 25, 32, .83)),
+                url("https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=1800&q=80")
+                center / cover;
+            text-align: center;
+        }
+
+        .supporter-banner h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(40px, 7vw, 72px);
+            line-height: 1;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .supporter-banner p {
+            max-width: 600px;
+            margin: 17px auto 25px;
+            color: #ffe7e7;
+            font-size: 13px;
+        }
+
+        .supporter-banner .btn {
+            background: white;
+            border-color: white;
+            color: var(--red);
+        }
+
+        .supporter-banner .btn:hover {
+            background: var(--black);
+            border-color: var(--black);
+            color: white;
+        }
+
+        /* FOOTER */
+
+        .footer {
+            background: #101010;
+            color: white;
+        }
+
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding: 60px 0 45px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .footer-brand img {
+            width: 49px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .footer-brand strong {
+            display: block;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 24px;
+            line-height: 1;
+        }
+
+        .footer-brand span {
+            display: block;
+            color: #ff6469;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .footer-about {
+            max-width: 290px;
+            color: #aaa;
+            font-size: 11px;
+        }
+
+        .footer-column h3 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 21px;
+            text-transform: uppercase;
+            margin-bottom: 17px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin: 10px 0;
+        }
+
+        .footer-column a {
+            color: #aaa;
+            font-size: 11px;
+            transition: .2s;
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2b2b2b;
+            padding: 20px 0;
+            color: #929292;
+            font-size: 10px;
+        }
+
+        .footer-bottom-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .fan-disclaimer {
+            margin-top: 8px;
+            color: #777;
+            font-size: 9px;
+        }
+
+        /* BACK TO TOP */
+
+        .back-top {
+            position: fixed;
+            z-index: 900;
+            right: 22px;
+            bottom: 22px;
+            width: 44px;
+            height: 44px;
+            border: 0;
+            background: var(--red);
+            color: white;
+            font-size: 21px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, .2);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: .25s;
+        }
+
+        .back-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .nav-menu a {
+                font-size: 10px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .match-card {
+                grid-template-columns: 120px 1fr;
+            }
+
+            .match-action {
+                grid-column: 2;
+                text-align: left;
+            }
+
+            .match-date {
+                grid-row: span 2;
+            }
+
+            .footer-main {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 760px) {
+            .section {
+                padding: 60px 0;
+            }
+
+            .topbar-inner {
+                justify-content: center;
+            }
+
+            .topbar-right {
+                display: none;
+            }
+
+            .nav-inner {
+                min-height: 72px;
+            }
+
+            .brand img {
+                width: 40px;
+                height: 48px;
+            }
+
+            .brand-text strong {
+                font-size: 22px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                display: none;
+                align-items: stretch;
+                gap: 0;
+                padding: 8px 4%;
+                background: white;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 10px 15px rgba(0, 0, 0, .07);
+            }
+
+            .nav-menu.open {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .nav-menu li {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-menu li:last-child {
+                border-bottom: 0;
+            }
+
+            .nav-menu a {
+                display: block;
+                padding: 14px 4px;
+                font-size: 12px;
+            }
+
+            .nav-menu a::after {
+                display: none;
+            }
+
+            .hero {
+                min-height: 540px;
+            }
+
+            .hero-content {
+                padding: 70px 0 100px;
+            }
+
+            .hero h1 {
+                font-size: clamp(55px, 13vw, 80px);
+            }
+
+            .hero-bottom-inner {
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+                font-size: 9px;
+            }
+
+            .quick-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-item {
+                border-bottom: 1px solid var(--border);
+                padding: 18px 12px;
+            }
+
+            .quick-item:nth-child(odd) {
+                border-left: 1px solid var(--border);
+            }
+
+            .quick-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 18px;
+            }
+
+            .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .match-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 18px;
+            }
+
+            .match-date {
+                grid-row: auto;
+                border-right: 0;
+                border-bottom: 1px solid var(--border);
+                padding: 0 0 12px;
+            }
+
+            .match-teams {
+                gap: 8px;
+            }
+
+            .team {
+                flex-direction: column;
+                text-align: center;
+                gap: 6px;
+            }
+
+            .team:last-child {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-name {
+                font-size: 10px;
+                overflow-wrap: anywhere;
+            }
+
+            .team-logo {
+                width: 36px;
+                height: 36px;
+            }
+
+            .team-logo img {
+                width: 27px;
+                height: 27px;
+            }
+
+            .match-score {
+                min-width: 64px;
+                font-size: 23px;
+            }
+
+            .match-action {
+                grid-column: auto;
+                text-align: center;
+            }
+
+            .feature-grid,
+            .history-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .feature-image {
+                min-height: 320px;
+            }
+
+            .feature-content {
+                padding: 0;
+            }
+
+            .news-tools {
+                width: 100%;
+            }
+
+            .news-search {
+                width: 100%;
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .news-image {
+                height: 240px;
+            }
+
+            .trophy-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px 20px;
+            }
+
+            .footer-bottom-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .brand-text span {
+                font-size: 8px;
+                letter-spacing: 1px;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .quick-item {
+                gap: 9px;
+            }
+
+            .quick-item strong {
+                font-size: 10px;
+            }
+
+            .quick-item span {
+                font-size: 9px;
+            }
+
+            .trophy-grid {
+                gap: 10px;
+            }
+
+            .trophy-card {
+                padding: 24px 10px;
+            }
+
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="topbar">
+        <div class="container topbar-inner">
+            <div>MACAN KEMAYORAN • JAKARTA, INDONESIA</div>
+            <div class="topbar-right">
+                <a href="https://www.persija.id/" target="_blank" rel="noopener">Website Resmi</a>
+                <a href="https://www.persija.id/media/videos" target="_blank" rel="noopener">Persija TV</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a class="brand" href="#beranda" aria-label="Persija Jakarta beranda">
+                <img
+                    src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                    alt="Logo Persija Jakarta"
+                    onerror="this.style.display='none'">
+                <div class="brand-text">
+                    <strong>PERSIJA</strong>
+                    <span>JAKARTA • SEJAK 1928</span>
+                </div>
+            </a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">
+                ☰
+            </button>
+
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#pertandingan">Pertandingan</a></li>
+                    <li><a href="#berita">Berita</a></li>
+                    <li><a href="#sejarah">Sejarah</a></li>
+                    <li><a href="#prestasi">Prestasi</a></li>
+                    <li><a href="#suporter">Suporter</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a class="btn nav-cta" href="https://www.persija.id/" target="_blank" rel="noopener">
+                    Situs Resmi ↗
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="beranda">
+            <div class="hero-bg"></div>
+
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-label">🔴 Macan Kemayoran</div>
+
+                    <h1>
+                        SATU HATI<br>
+                        <span>SATU JIWA</span>
+                    </h1>
+
+                    <p>
+                        Persija Jakarta bukan sekadar klub sepak bola.
+                        Persija adalah kebanggaan ibu kota, bagian dari sejarah,
+                        dan semangat yang menyatukan para pendukungnya.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#pertandingan" class="btn">Lihat Pertandingan ↘</a>
+                        <a href="#sejarah" class="btn btn-outline">Jelajahi Sejarah</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-bottom">
+                <div class="container hero-bottom-inner">
+                    <span>🔴 Persija Jakarta</span>
+                    <span>⚽ Kebanggaan Ibu Kota</span>
+                    <span>📍 Jakarta, Indonesia</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK LINKS -->
+        <section class="quick-links">
+            <div class="container quick-grid">
+                <a href="#pertandingan" class="quick-item">
+                    <div class="quick-icon">⚽</div>
+                    <div>
+                        <strong>Hasil Laga</strong>
+                        <span>Rekap pertandingan</span>
+                    </div>
+                </a>
+
+                <a href="#pertandingan" class="quick-item">
+                    <div class="quick-icon">📅</div>
+                    <div>
+                        <strong>Jadwal Laga</strong>
+                        <span>Pertandingan mendatang</span>
+                    </div>
+                </a>
+
+                <a href="#berita" class="quick-item">
+                    <div class="quick-icon">📰</div>
+                    <div>
+                        <strong>Berita</strong>
+                        <span>Info dan kabar Persija</span>
+                    </div>
+                </a>
+
+                <a href="#sejarah" class="quick-item">
+                    <div class="quick-icon">🏆</div>
+                    <div>
+                        <strong>Sejarah Klub</strong>
+                        <span>Perjalanan Macan Kemayoran</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- MATCH RESULTS AND SCHEDULE -->
+        <section class="section" id="pertandingan">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">Di Atas Lapangan</span>
+                        <h2 class="section-title">Pertandingan Persija</h2>
+                        <p class="section-description">
+                            Lihat hasil beberapa pertandingan sebelumnya dan jadwal
+                            laga berikutnya. Klik tombol untuk membuka informasi lanjutan.
+                        </p>
+                    </div>
+
+                    <a class="btn btn-outline"
+                       href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                       target="_blank" rel="noopener">
+                        Statistik Lengkap ↗
+                    </a>
+                </div>
+
+                <div class="match-tabs" role="group" aria-label="Filter pertandingan">
+                    <button class="tab-button active" data-filter="all">Semua</button>
+                    <button class="tab-button" data-filter="finished">Hasil Pertandingan</button>
+                    <button class="tab-button" data-filter="upcoming">Jadwal Berikutnya</button>
+                </div>
+
+                <div class="match-list" id="matchList">
+
+                    <!-- MATCH 1 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>5 September 2026</small>
+                            <strong>05 SEP</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Borneo FC
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">0 - 1</div>
+
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Detail Laga ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- MATCH 2 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>12 September 2026</small>
+                            <strong>12 SEP</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">2 - 1</div>
+
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">
+                                    Persib Bandung
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Detail Laga ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- MATCH 3 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>19 September 2026</small>
+                            <strong>19 SEP</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">1 - 0</div>
+
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">
+                                    Java United
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Detail Laga ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- MATCH 4 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>10 Oktober 2026</small>
+                            <strong>10 OKT</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">
+                                    PSIM Yogyakarta
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">0 - 4</div>
+
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                               target="_blank" rel="noopener">Tonton Highlight ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- MATCH 5 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>17 Oktober 2026</small>
+                            <strong>17 OKT</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">
+                                    Persita Tangerang
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">3 - 2</div>
+
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://www.persija.id/media/videos/kalah-di-menit-akhir-persita-tangerang-3-2-persija-highlight-bri-super-league-20262027"
+                               target="_blank" rel="noopener">Tonton Highlight ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- MATCH 6 -->
+                    <article class="match-card" data-status="finished">
+                        <div class="match-date">
+                            <small>21 Oktober 2026</small>
+                            <strong>21 OKT</strong>
+                            <span>Sudah dimainkan</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">
+                                    Persija Jakarta
+                                    <small>Tuan rumah</small>
+                                </div>
+                            </div>
+
+                            <div class="match-score">5 - 1</div>
+
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">
+                                    Arema FC
+                                    <small>Tim tamu</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Detail Laga ↗</a>
+                        </div>
+                    </article>
+
+                    <!-- UPCOMING MATCHES -->
+                    <article class="match-card" data-status="upcoming">
+                        <div class="match-date">
+                            <small>26 Oktober 2026</small>
+                            <strong>26 OKT</strong>
+                            <span>Jadwal berikutnya</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">Persija Jakarta</div>
+                            </div>
+
+                            <div class="match-score upcoming">VS</div>
+
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">Persik Kediri</div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Info Jadwal ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="match-card" data-status="upcoming">
+                        <div class="match-date">
+                            <small>31 Oktober 2026</small>
+                            <strong>31 OKT</strong>
+                            <span>Jadwal berikutnya</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">Dewa United</div>
+                            </div>
+
+                            <div class="match-score upcoming">VS</div>
+
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">Persija Jakarta</div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Info Jadwal ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="match-card" data-status="upcoming">
+                        <div class="match-date">
+                            <small>7 November 2026</small>
+                            <strong>07 NOV</strong>
+                            <span>Jadwal berikutnya</span>
+                        </div>
+
+                        <div class="match-teams">
+                            <div class="team">
+                                <div class="team-logo">
+                                    <img
+                                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                                        alt="Logo Persija">
+                                </div>
+                                <div class="team-name">Persija Jakarta</div>
+                            </div>
+
+                            <div class="match-score upcoming">VS</div>
+
+                            <div class="team">
+                                <div class="team-logo">⚽</div>
+                                <div class="team-name">Persebaya Surabaya</div>
+                            </div>
+                        </div>
+
+                        <div class="match-action">
+                            <a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta"
+                               target="_blank" rel="noopener">Info Jadwal ↗</a>
+                        </div>
+                    </article>
+                </div>
+
+                <p class="match-note">
+                    Catatan: data pertandingan ditampilkan sebagai informasi awal.
+                    Jadwal, skor, waktu kick-off, dan ketersediaan video dapat berubah.
+                    Periksa situs resmi Persija atau I.League untuk konfirmasi terbaru.
+                </p>
+            </div>
+        </section>
+
+        <!-- FEATURE / LAST MATCH -->
+        <section class="section section-light">
+            <div class="container feature-grid">
+                <a class="feature-image"
+                   href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                   target="_blank" rel="noopener"
+                   aria-label="Tonton highlight PSIM melawan Persija">
+                    <img
+                        src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=85"
+                        alt="Suasana pertandingan sepak bola"
+                        loading="lazy">
+
+                    <div class="feature-image-caption">
+                        <span>Video Highlight Resmi</span>
+                        <h3>PSIM 0–4 PERSIJA</h3>
+                    </div>
+                </a>
+
+                <div class="feature-content">
+                    <span class="eyebrow">Sorotan Pertandingan</span>
+                    <h3>Empat Gol, Tiga Poin, Semangat Macan Kemayoran</h3>
+
+                    <p>
+                        Pada pertandingan melawan PSIM Yogyakarta tanggal
+                        10 Oktober 2026, Persija meraih kemenangan dengan skor
+                        4–0. Gol-gol tercipta pada babak kedua.
+                    </p>
+
+                    <ul class="goal-list">
+                        <li>
+                            <span>Alexander Jeremejeff</span>
+                            <strong>77'</strong>
+                        </li>
+                        <li>
+                            <span>Stjepan Loncar</span>
+                            <strong>81'</strong>
+                        </li>
+                        <li>
+                            <span>Kwon Chang-hoon</span>
+                            <strong>87'</strong>
+                        </li>
+                        <li>
+                            <span>Stjepan Loncar</span>
+                            <strong>90+3'</strong>
+                        </li>
+                    </ul>
+
+                    <a class="btn"
+                       href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                       target="_blank" rel="noopener">
+                        ▶ Tonton Highlight
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWS -->
+        <section class="section" id="berita">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">Kabar Macan</span>
+                        <h2 class="section-title">Berita & Informasi</h2>
+                        <p class="section-description">
+                            Baca informasi Persija dan buka artikel atau video
+                            melalui tautan sumber yang tersedia.
+                        </p>
+                    </div>
+
+                    <div class="news-tools">
+                        <input
+                            type="search"
+                            id="newsSearch"
+                            class="news-search"
+                            placeholder="Cari berita..."
+                            aria-label="Cari berita Persija">
+                    </div>
+                </div>
+
+                <div class="news-grid" id="newsGrid">
+                    <article class="news-card" data-title="psim persija empat gol kemenangan highlight">
+                        <a class="news-image"
+                           href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                           target="_blank" rel="noopener">
+                            <img
+                                src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=900&q=80"
+                                alt="Lapangan sepak bola"
+                                loading="lazy">
+                            <span class="news-category">Pertandingan</span>
+                        </a>
+
+                        <div class="news-body">
+                            <div class="news-meta">10 Oktober 2026 • Highlight</div>
+                            <h3>Persija Menang 4–0 atas PSIM Yogyakarta</h3>
+                            <p>
+                                Simak rangkuman gol dan momen pertandingan
+                                Persija melawan PSIM di halaman video resmi klub.
+                            </p>
+                            <a class="read-more"
+                               href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                               target="_blank" rel="noopener">Buka Video ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card" data-title="persita persija hasil pertandingan highlight">
+                        <a class="news-image"
+                           href="https://www.persija.id/media/videos/kalah-di-menit-akhir-persita-tangerang-3-2-persija-highlight-bri-super-league-20262027"
+                           target="_blank" rel="noopener">
+                            <img
+                                src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&w=900&q=80"
+                                alt="Stadion sepak bola"
+                                loading="lazy">
+                            <span class="news-category">Highlight</span>
+                        </a>
+
+                        <div class="news-body">
+                            <div class="news-meta">17 Oktober 2026 • Pertandingan</div>
+                            <h3>Persita 3–2 Persija: Tonton Rangkuman Laga</h3>
+                            <p>
+                                Buka halaman video resmi untuk melihat
+                                rangkuman pertandingan Persita melawan Persija.
+                            </p>
+                            <a class="read-more"
+                               href="https://www.persija.id/media/videos/kalah-di-menit-akhir-persita-tangerang-3-2-persija-highlight-bri-super-league-20262027"
+                               target="_blank" rel="noopener">Buka Video ↗</a>
+                        </div>
+                    </article>
+
+                    <article class="news-card" data-title="sejarah persija jakarta 1928 vi j">
+                        <a class="news-image"
+                           href="https://www.persija.id/about/history"
+                           target="_blank" rel="noopener">
+                            <img
+                                src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=900&q=80"
+                                alt="Sepak bola dan sejarah olahraga"
+                                loading="lazy">
+                            <span class="news-category">Sejarah</span>
+                        </a>
+
+                        <div class="news-body">
+                            <div class="news-meta">Sejarah Klub • Sejak 1928</div>
+                            <h3>Mengenal Perjalanan Panjang Persija Jakarta</h3>
+                            <p>
+                                Kenali awal berdirinya klub, perubahan nama,
+                                serta perjalanan Persija dalam sepak bola Indonesia.
+                            </p>
+                            <a class="read-more"
+                               href="https://www.persija.id/about/history"
+                               target="_blank" rel="noopener">Baca Sejarah ↗</a>
+                        </div>
+                    </article>
+                </div>
+
+                <p id="noNews" class="empty-news" hidden>
+                    Berita tidak ditemukan. Coba gunakan kata kunci lain.
+                </p>
+
+                <div style="text-align:center; margin-top:30px;">
+                    <a class="btn btn-outline"
+                       href="https://www.persija.id/"
+                       target="_blank" rel="noopener">
+                        Kunjungi Website Resmi ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- HISTORY -->
+        <section class="section history-section" id="sejarah">
+            <div class="container history-layout">
+                <div class="history-intro">
+                    <span class="eyebrow">Warisan Ibu Kota</span>
+                    <h2 class="section-title">Sejarah<br>Persija Jakarta</h2>
+
+                    <p>
+                        Persija Jakarta merupakan salah satu klub sepak bola
+                        bersejarah di Indonesia. Akar sejarahnya bermula dari
+                        Voetbalbond Indonesia Jacatra (VIJ), yang berdiri pada
+                        <strong>28 November 1928</strong>.
+                    </p>
+
+                    <p>
+                        Nama Persija kemudian digunakan pada 1950. Sepanjang
+                        perjalanannya, klub ini menjadi bagian penting dari
+                        perkembangan sepak bola nasional dan memiliki basis
+                        pendukung yang besar di Jakarta.
+                    </p>
+
+                    <p>
+                        Cerita Persija bukan hanya tentang kemenangan,
+                        tetapi juga tentang identitas kota, perjuangan,
+                        kebersamaan, dan kecintaan terhadap sepak bola.
+                    </p>
+
+                    <a class="btn"
+                       href="https://www.persija.id/about/history"
+                       target="_blank" rel="noopener">
+                        Sejarah di Situs Resmi ↗
+                    </a>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">1928</div>
+                        <h3>Lahirnya VIJ</h3>
+                        <p>
+                            Voetbalbond Indonesia Jacatra (VIJ) didirikan
+                            pada 28 November 1928. Organisasi ini menjadi
+                            akar sejarah Persija Jakarta.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1930</div>
+                        <h3>Bagian dari Sejarah PSSI</h3>
+                        <p>
+                            VIJ menjadi salah satu peserta penting dalam
+                            pembentukan Persatuan Sepak Bola Seluruh Indonesia
+                            (PSSI) pada 19 April 1930.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">1950</div>
+                        <h3>Nama Persija Digunakan</h3>
+                        <p>
+                            Nama Persija mulai digunakan sebagai identitas
+                            klub yang dikenal sebagai Persija Jakarta.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2001</div>
+                        <h3>Juara Liga Indonesia</h3>
+                        <p>
+                            Persija meraih gelar juara nasional pada
+                            kompetisi Liga Indonesia tahun 2001.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <h3>Juara Liga 1 Indonesia</h3>
+                        <p>
+                            Persija kembali menjadi juara liga pada 2018,
+                            menjadi salah satu momen bersejarah bagi klub
+                            dan para pendukungnya.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TROPHIES -->
+        <section class="section section-light" id="prestasi">
+            <div class="container">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">Jejak Prestasi</span>
+                        <h2 class="section-title">Kebanggaan Macan Kemayoran</h2>
+                        <p class="section-description">
+                            Beberapa pencapaian dan fakta penting dalam perjalanan
+                            Persija Jakarta. Untuk daftar gelar yang lengkap,
+                            kunjungi sumber resmi klub.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="trophy-grid">
+                    <div class="trophy-card">
+                        <div class="trophy-icon">🏆</div>
+                        <strong>1928</strong>
+                        <span>Tahun Berdiri</span>
+                        <small>Akar sejarah klub</small>
+                    </div>
+
+                    <div class="trophy-card">
+                        <div class="trophy-icon">🥇</div>
+                        <strong>2001</strong>
+                        <span>Juara Liga Indonesia</span>
+                        <small>Prestasi nasional</small>
+                    </div>
+
+                    <div class="trophy-card">
+                        <div class="trophy-icon">🏆</div>
+                        <strong>2018</strong>
+                        <span>Juara Liga 1</span>
+                        <small>Musim bersejarah</small>
+                    </div>
+
+                    <div class="trophy-card">
+                        <div class="trophy-icon">🔴</div>
+                        <strong>Jakarta</strong>
+                        <span>Kota Kebanggaan</span>
+                        <small>Rumah Macan Kemayoran</small>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:30px;">
+                    <a class="btn btn-outline"
+                       href="https://www.persija.id/about/history"
+                       target="_blank" rel="noopener">
+                        Lihat Sejarah dan Prestasi ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUPPORTERS -->
+        <section class="supporter-banner" id="suporter">
+            <div class="container">
+                <span class="eyebrow" style="color:white;">Jakmania • Persija Jakarta</span>
+                <h2>Lebih dari Sekadar Sepak Bola</h2>
+                <p>
+                    Dukungan, kebersamaan, dan rasa bangga menjadi bagian dari
+                    cerita Persija. Dukung tim dengan cara yang positif,
+                    saling menghormati, dan menjunjung sportivitas.
+                </p>
+
+                <a class="btn"
+                   href="https://www.persija.id/"
+                   target="_blank" rel="noopener">
+                    Ikuti Informasi Resmi ↗
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-main">
+            <div>
+                <a class="footer-brand" href="#beranda">
+                    <img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Logo%20Persija%20ok.png"
+                        alt="Logo Persija Jakarta">
+                    <div>
+                        <strong>PERSIJA JAKARTA</strong>
+                        <span>MACAN KEMAYORAN</span>
+                    </div>
+                </a>
+
+                <p class="footer-about">
+                    Halaman penggemar yang menyajikan informasi,
+                    sejarah, jadwal, hasil pertandingan, dan tautan
+                    video Persija Jakarta.
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="#beranda">Beranda</a></li>
+                    <li><a href="#pertandingan">Pertandingan</a></li>
+                    <li><a href="#berita">Berita</a></li>
+                    <li><a href="#sejarah">Sejarah Persija</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Informasi</h3>
+                <ul>
+                    <li><a href="https://www.persija.id/" target="_blank" rel="noopener">Situs Resmi Persija</a></li>
+                    <li><a href="https://www.persija.id/media/videos" target="_blank" rel="noopener">Video Persija</a></li>
+                    <li><a href="https://ileague.id/clubs/single/BRI_SUPER_LEAGUE_2026-27/persija_jakarta" target="_blank" rel="noopener">Statistik I.League</a></li>
+                    <li><a href="https://www.persija.id/about/history" target="_blank" rel="noopener">Sejarah Resmi</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Video Highlight</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.persija.id/media/videos/pesta-empat-gol-psim-jogja-0-4-persija-highlight-bri-super-league-20262027"
+                           target="_blank" rel="noopener">PSIM 0–4 Persija</a>
+                    </li>
+                    <li>
+                        <a href="https://www.persija.id/media/videos/kalah-di-menit-akhir-persita-tangerang-3-2-persija-highlight-bri-super-league-20262027"
+                           target="_blank" rel="noopener">Persita 3–2 Persija</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-inner">
+                <div>
+                    © <span id="currentYear"></span> Persija Fan Page.
+                    Dibuat untuk penggemar sepak bola.
+                </div>
+                <div>Merah • Putih • Jakarta</div>
+            </div>
+
+            <div class="container fan-disclaimer">
+                Situs ini merupakan proyek fan-made, bukan situs resmi Persija Jakarta
+                dan tidak berafiliasi dengan klub. Logo dan gambar eksternal dimuat
+                melalui tautan sumber masing-masing.
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-top" id="backTop" aria-label="Kembali ke atas">↑</button>
+
+    <script>
+        // TAHUN OTOMATIS DI FOOTER
+        document.getElementById("currentYear").textContent =
+            new Date().getFullYear();
+
+        // MENU MOBILE
+        const menuToggle = document.getElementById("menuToggle");
+        const navMenu = document.getElementById("navMenu");
+
+        menuToggle.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("open");
+
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.textContent = isOpen ? "✕" : "☰";
+        });
+
+        // TUTUP MENU SETELAH LINK DIPILIH
+        document.querySelectorAll("#navMenu a").forEach(function (link) {
+            link.addEventListener("click", function () {
+                navMenu.classList.remove("open");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.textContent = "☰";
+            });
+        });
+
+        // FILTER PERTANDINGAN
+        const filterButtons = document.querySelectorAll(".tab-button");
+        const matchCards = document.querySelectorAll(".match-card");
+
+        filterButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                filterButtons.forEach(function (item) {
+                    item.classList.remove("active");
+                });
+
+                button.classList.add("active");
+
+                const filter = button.dataset.filter;
+
+                matchCards.forEach(function (card) {
+                    if (filter === "all" || card.dataset.status === filter) {
+                        card.style.display = "grid";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+
+        // PENCARIAN BERITA
+        const newsSearch = document.getElementById("newsSearch");
+        const newsCards = document.querySelectorAll(".news-card");
+        const noNews = document.getElementById("noNews");
+
+        newsSearch.addEventListener("input", function () {
+            const keyword = newsSearch.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            newsCards.forEach(function (card) {
+                const title = card.dataset.title.toLowerCase();
+                const content = card.textContent.toLowerCase();
+
+                const match = title.includes(keyword) ||
+                              content.includes(keyword);
+
+                card.style.display = match ? "block" : "none";
+
+                if (match) {
+                    visibleCount++;
+                }
+            });
+
+            noNews.hidden = visibleCount !== 0;
+        });
+
+        // TOMBOL KEMBALI KE ATAS
+        const backTop = document.getElementById("backTop");
+
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 400) {
+                backTop.classList.add("show");
+            } else {
+                backTop.classList.remove("show");
+            }
+        });
+
+        backTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+</html>
